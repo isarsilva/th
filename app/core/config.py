@@ -15,7 +15,8 @@ class Settings(BaseSettings):
 
 
     #Database
-    MYSQL_CONNECTION_STRING: str = config("MYSQL_CONNECTION_STRING", cast=str)
+    # MYSQL_CONNECTION_STRING: str = config("MYSQL_CONNECTION_STRING", cast=str)
+    MONGO_CONNECTION_STRING: str = config("MONGO_CONNECTION_STRING", cast=str)  # conexão com o banco de dados MongoDB
 
     class Config:
         case_sensitive = True
