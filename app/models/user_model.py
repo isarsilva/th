@@ -32,3 +32,12 @@ def __eq__(self, other: object) -> bool: #Comparação de igualdade	user1 == use
         return self.email == other.email
         return False
     
+@property
+def create(self) -> datetime:     # Propriedade para obter a data de criação do documento
+    return self.id.generation_time # Propriedade para obter o tempo de criação do documento
+
+@classmethod
+async def by_email(self, email: str) -> "User":      # Método de classe para buscar um usuário pelo e-mail
+    return await self.find_one(self.email == email)                 # Retorna o primeiro usuário que corresponde ao e-mail fornecido
+
+
