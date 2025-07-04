@@ -11,7 +11,6 @@ class User(Document):
 
     username: Annotated[str, Indexed(unique=True)]
     email: Annotated[EmailStr, Indexed(unique=True)]
-
     hashed_password: str
     first_name: Optional[str] = None
     last_name: Optional[str] = None
@@ -38,6 +37,4 @@ def create(self) -> datetime:     # Propriedade para obter a data de criação d
 
 @classmethod
 async def by_email(self, email: str) -> "User":      # Método de classe para buscar um usuário pelo e-mail
-    return await self.find_one(self.email == email)                 # Retorna o primeiro usuário que corresponde ao e-mail fornecido
-
-
+  return await self.find_one(self.email == email)                 # Retorna o primeiro usuário que corresponde ao e-mail fornecido
